@@ -4,6 +4,7 @@ import express from "express";
 
 import { authRoutes } from "./auth";
 import connectDB from "./utils/db";
+import appointmentRouter from "./appointment/routes/AppointmentRoutes";
 
 dotenv.config();
 
@@ -15,6 +16,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/v1/auth", authRoutes);
+
+app.use('/api/v1/appointment', appointmentRouter);
 
 // Routes
 app.get("/", (req, res) => {
