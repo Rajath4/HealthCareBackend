@@ -32,11 +32,11 @@ class AuthService {
     return { message: 'User registered successfully.' };
   }
 
-  static async login(data: { email: string; password: string }) {
-    const { email, password } = data;
+  static async login(data: { username: string; password: string }) {
+    const { username, password } = data;
 
     // Find user
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ username });
     if (!user) {
       throw new Error('Invalid credentials.');
     }
