@@ -12,10 +12,8 @@ export class AppointmentRepository {
 
   async find(filter: any, sortOptions: any): Promise<IAppointment[]> {
     return Appointment.find(filter).sort(sortOptions)
-    // .populate('doctorId', 'name')
-    // .populate('patientId', 'name')
-     .populate('doctorId', 'username')
-    .populate('patientId', 'username')
+    .populate('doctorId', 'name')
+    .populate('patientId', 'name')
     .exec();
   }
 

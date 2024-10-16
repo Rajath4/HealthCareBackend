@@ -6,10 +6,11 @@ import User from '../models/User';
 class AuthService {
   static async register(data: {
     username: string;
+    name: string;
     email: string;
     password: string;
   }) {
-    const { username, email, password } = data;
+    const { username,name, email, password } = data;
 
     // Check if user exists
     const existingUser = await User.findOne({ $or: [{ username }, { email }] });
@@ -23,6 +24,7 @@ class AuthService {
     // Create user
     const user = new User({
       username,
+      name,
       email,
       password: hashedPassword,
     });
