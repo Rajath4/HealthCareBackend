@@ -6,6 +6,7 @@ import { authRoutes } from "./auth";
 import connectDB from "./utils/db";
 import appointmentRouter from "./appointment/routes/AppointmentRoutes";
 import dashboardRouter from "./dashboard/routes/DashboardRoutes";
+import userRouter from "./user/routes/UserRoutes";
 
 dotenv.config();
 
@@ -21,6 +22,8 @@ app.use("/api/v1/auth", authRoutes);
 app.use('/api/v1/appointment', appointmentRouter);
 
 app.use('/api/v1/dashboard', dashboardRouter);
+
+app.use('/api/v1/user', userRouter);
 
 // Routes
 app.get("/", (req, res) => {
